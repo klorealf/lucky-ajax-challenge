@@ -12,11 +12,9 @@
 
   <div id="die-container">
     <% if @die %>
-      <div class="die">
-        <span class="roll">
-          <%= @die.roll %>
-        </span>
-      </div>
+      <!-- let's DRY out this view by calling
+        the die roll partial here -->
+      <%= erb :_roll %>
     <% end %>
   </div>
 
