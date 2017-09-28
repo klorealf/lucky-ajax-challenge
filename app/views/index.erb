@@ -1,8 +1,7 @@
 <div class="container">
   <h1>Simplest Possible AJAX</h1>
   <p>This contrived app will simulate a roll of a n-sided die.</p>
-
-  <form method="post" action="/rolls">
+  <form id="die_roll_post" method="post" action="/rolls">
     <p>
       <label name="sides"/>How many sides?</label>
       <input name="sides" type="integer" placeholder="optional - default=6" value="<%= params[:sides] %>"/>
@@ -13,9 +12,8 @@
   <div id="die-container">
     <% if @die %>
       <div class="die">
-        <span class="roll">
-          <%= @die.roll %>
-        </span>
+        <%= erb :_rolls %>
+
       </div>
     <% end %>
   </div>
