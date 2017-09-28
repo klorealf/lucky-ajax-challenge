@@ -1,9 +1,14 @@
 $(document).ready(function () {
-
-  // PSEUDO-CODE:
-  //   1- intercept the form submission event using jQuery
-  //   2- prevent the default action for that event from happening
-  //   3- use jQuery to submit an AJAX post to the form's action
-  //   4- when the AJAX post is done, display the new die roll using jQuery
-
+    $("#die-roll").on("submit", function(event) {
+        event.preventDefault();
+        var $form = $(event.target);
+        $.ajax({
+            method: $form.attr("method"),
+            url: $form.attr("action"),
+            data: $form.serialize()
+        })
+        .done(function(response) {
+            $("#die-container").html(response);
+        })
+    })
 });
