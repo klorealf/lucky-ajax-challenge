@@ -9,6 +9,6 @@ post '/rolls' do
   if request.xhr?
     erb :_roll , layout: false
   else
-    erb :index # HINT: what does this do? what should we do instead?
+    redirect '/' # HINT: what does this do? what should we do instead?
   end
 end
