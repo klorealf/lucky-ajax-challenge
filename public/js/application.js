@@ -6,4 +6,24 @@ $(document).ready(function () {
   //   3- use jQuery to submit an AJAX post to the form's action
   //   4- when the AJAX post is done, display the new die roll using jQuery
 
+  $('#die_roll_form').on('submit', function(e) {
+    e.preventDefault();
+
+    var $form = $(e.target);
+    var url = $form.attr("action");
+    var method = $form.attr("method");
+    var data = $form.serialize();
+    //var url =  $("#die_roll_id").attr("action")
+    // debugger
+    $.ajax({
+      url: url,
+      method: method,
+      data: data
+    })
+    .done(function(response){
+    // debugger;
+      $('#die_container').html(response);
+
+    })
+  })
 });
