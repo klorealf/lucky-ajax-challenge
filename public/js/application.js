@@ -14,14 +14,13 @@ $(document).ready(function () {
     var method = $form.attr("method");
     var data = $form.serialize();
     //var url =  $("#die_roll_id").attr("action")
-    // debugger
+
     $.ajax({
       url: url,
       method: method,
       data: data
     })
     .done(function(response){
-    // debugger;
       $('#die_container').html(response);
 
     })
